@@ -1,8 +1,13 @@
 import requests
 import json
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+model_name = os.getenv('MODEL_NAME') # model name for huggingface.co in .env file
+
+
 def main():
-    model_name = "t5-large"
     # # Call the function and get the model info
     data = huggingface_api_call(model_name)
     # Save the data if needed
@@ -18,15 +23,20 @@ def main():
     for key, value in data["transformersInfo"].items():
         print(f"- transformersInfo: {key}: {value}")
 
-    tsp = data.get("config", {}).get("task_specific_params")
-    if tsp is not None:
-        print("- task_specific_params:")
-        for key1, value1 in data["config"]["task_specific_params"].items():
-            output = "- - " + key1
-            for key2, value2 in value1.items():
-                if key2 == "prefix" or key2 == "max_length":
-                    output += f" - {key2}: {value2}"
-            print(output)
+    try:
+        config = data["config"]
+        tsp = config["task_specific_params"]
+        if tsp is not None:
+            print("- task_specific_params:")
+            for key1, value1 in data["config"]["task_specific_params"].items():
+                output = "- - " + key1
+                for key2, value2 in value1.items():
+                    if key2 == "prefix" or key2 == "max_length":
+                        output += f" - {key2}: {value2}"
+                print(output)
+    except KeyError:
+        print("- task_specific_params: None")
+
 
 def huggingface_api_call(model_name):
     endpoint = f"https://huggingface.co/api/models/{model_name}"
