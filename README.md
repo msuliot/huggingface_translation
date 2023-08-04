@@ -56,7 +56,8 @@ https://huggingface.co/api/models/t5-large
 - transformersInfo: auto_model: AutoModelForSeq2SeqLM
 - transformersInfo: pipeline_tag: text2text-generation
 - transformersInfo: processor: AutoTokenizer
-- task_specific_params: summarization: {'early_stopping': True, 'length_penalty': 2, 'max_length': 200, 'min_length': 30, 'no_repeat_ngram_size': 3, 'num_beams': 4, 'prefix': 'summarize: '}
-- task_specific_params: translation_en_to_de: {'early_stopping': True, 'max_length': 300, 'num_beams': 4, 'prefix': 'translate English to German: '}
-- task_specific_params: translation_en_to_fr: {'early_stopping': True, 'max_length': 300, 'num_beams': 4, 'prefix': 'translate English to French: '}
-- task_specific_params: translation_en_to_ro: {'early_stopping': True, 'max_length': 300, 'num_beams': 4, 'prefix': 'translate English to Romanian: '} 
+- task_specific_params: 
+- - summarization - max_length: 200 - prefix: summarize: 
+- - translation_en_to_de - max_length: 300 - prefix: translate English to German: 
+- - translation_en_to_fr - max_length: 300 - prefix: translate English to French: 
+- - translation_en_to_ro - max_length: 300 - prefix: translate English to Romanian: 

@@ -8,7 +8,7 @@ os.environ['TOKENIZERS_PARALLELISM'] = 'true'
 
 def set_local_vars():
     model_name = "t5-large"
-    pipeline_task = "translation_en_to_fr"  # translation_XX_to_YY, summarization 
+    pipeline_task = "translation_XX_to_YY"  # translation_XX_to_YY, summarization 
     return model_name, pipeline_task
 
 
@@ -21,7 +21,7 @@ def hf_pipeline(model_name, pipeline_task, text):
 def main():
     model_name, pipeline_task = set_local_vars()
     
-    text = """translate English to French: I love watching Michael's videos. Subscribe!"""
+    text = "English to French: Subscribe to Michael's videos. They are great."
     
     return_value = hf_pipeline(model_name, pipeline_task, text)
     print(return_value) 

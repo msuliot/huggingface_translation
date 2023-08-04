@@ -27,7 +27,7 @@ def hf_api(api_url, text):
 def main():
     api_url = set_local_vars()
 
-    text = """translate English to French: I love watching Michael's videos. Subscribe!"""
+    text = "English to French: Subscribe to Michael's videos. They are great."
     
     return_value = hf_api(api_url, text)
     print(return_value)
