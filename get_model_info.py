@@ -18,13 +18,15 @@ def main():
     for key, value in data["transformersInfo"].items():
         print(f"- transformersInfo: {key}: {value}")
 
-    print("- task_specific_params:")
-    for key1, value1 in data["config"]["task_specific_params"].items():
-        output = "- - " + key1
-        for key2, value2 in value1.items():
-            if key2 == "prefix" or key2 == "max_length":
-                output += f" - {key2}: {value2}"
-        print(output)
+    tsp = data.get("config", {}).get("task_specific_params")
+    if tsp is not None:
+        print("- task_specific_params:")
+        for key1, value1 in data["config"]["task_specific_params"].items():
+            output = "- - " + key1
+            for key2, value2 in value1.items():
+                if key2 == "prefix" or key2 == "max_length":
+                    output += f" - {key2}: {value2}"
+            print(output)
 
 def huggingface_api_call(model_name):
     endpoint = f"https://huggingface.co/api/models/{model_name}"

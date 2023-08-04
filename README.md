@@ -1,4 +1,4 @@
-# Hugging Face Transformers - Translation
+# Hugging Face - Translation
 
 This is a simple example of how to use the Hugging Face Hub for translating text.
 
