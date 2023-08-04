@@ -48,7 +48,7 @@ Supported tensors are
 - TensorFlow
 
 ## Hugging Face Hub API 
-https://huggingface.co/api/models/t5-large
+https://huggingface.co/t5-large
 - modelId: t5-large
 - pipeline_tag: translation
 - library_name: transformers
@@ -56,8 +56,8 @@ https://huggingface.co/api/models/t5-large
 - transformersInfo: auto_model: AutoModelForSeq2SeqLM
 - transformersInfo: pipeline_tag: text2text-generation
 - transformersInfo: processor: AutoTokenizer
-- task_specific_params: 
+- task_specific_params:
 - - summarization - max_length: 200 - prefix: summarize: 
 - - translation_en_to_de - max_length: 300 - prefix: translate English to German: 
 - - translation_en_to_fr - max_length: 300 - prefix: translate English to French: 
-- - translation_en_to_ro - max_length: 300 - prefix: translate English to Romanian: 
+- - translation_en_to_ro - max_length: 300 - prefix: translate English to Romanian:
